@@ -4,9 +4,8 @@ Core = require 'Core'
 Core.CoreService.implementSpi Config.coreSpi
 Core.coreService = new Core.CoreService()
 
-# Probably need to straighten this out, still.
-#Core.CoreService.setEngineRoot '../../../engine'
-#Core.CoreService.setResourceRoot '../../../resource'
+path = require 'path'
+Core.CoreService.setResourceRoot path.join process.cwd(), 'resource'
 
 Graphics = require 'Graphics'
 Graphics.GraphicsService.implementSpi Config.graphicsSpi
