@@ -2,3 +2,4 @@
 .project
 Makefile
 SPII
+libavocado.so

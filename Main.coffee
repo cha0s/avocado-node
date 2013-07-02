@@ -32,7 +32,7 @@ timeCounter = new Timing.Counter()
 
 main = new Main()
 
-main.on 'tick', ->
+main.on 'beforeTick', ->
 	
 	Timing.TimingService.setElapsed timeCounter.current() / 1000
 

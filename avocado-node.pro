@@ -2,4 +2,6 @@ TEMPLATE = subdirs
 
 CONFIG += ordered
 
-SUBDIRS += SPI node
+SUBDIRS += core
+SUBDIRS += SPI
+SUBDIRS += node

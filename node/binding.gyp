@@ -5,12 +5,12 @@
     ],
     'cflags!': [ '-fno-exceptions', '-fno-rtti' ],
     'cflags_cc!': [ '-fno-exceptions', '-fno-rtti' ],
-    'libraries': [
-      '-lboost_filesystem',
-      '-lboost_regex',
-      '-lboost_system',
-      '-lboost_program_options',
-    ],
+    'link_settings': {
+      'libraries': [
+        '-L../../core',
+        '-lavocado'
+      ]
+    },
     'include_dirs': [
       '..',
       '../core/deps',
@@ -18,13 +18,12 @@
     "sources": [
       "../SPI/v8/Script/avocado-v8.cpp",
       "../SPI/v8/Script/ObjectWrap.cpp"
-    ]
+    ]    
   },
   "targets": [
     {
       "target_name": "Core",
       "sources": [
-        "../core/FS.cpp",
         "../SPI/v8/Script/v8CoreService.cpp",
         "../core/Core/CoreService.cpp",
       ]
@@ -40,6 +39,8 @@
         "../SPI/v8/Script/v8GraphicsService.cpp",
         "../core/Graphics/Image.cpp",
         "../SPI/v8/Script/v8Image.cpp",
+        "../core/Graphics/Sprite.cpp",
+        "../SPI/v8/Script/v8Sprite.cpp",
         "../core/Graphics/Window.cpp",
         "../SPI/v8/Script/v8Window.cpp",
       ]
