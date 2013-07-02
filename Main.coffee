@@ -21,26 +21,20 @@ Timing.timingService = new Timing.TimingService()
 Timing.ticksPerSecondTarget = Config.ticksPerSecondTarget
 Timing.rendersPerSecondTarget = Config.rendersPerSecondTarget
 
-# SPI proxies.
+# Monkey patches & SPI proxies.
+require 'monkeyPatches'
 require 'proxySpiis'
+
+
+Main = require 'Main'
 
 timeCounter = new Timing.Counter()
 
-Main = class extends (require 'Main')
+main = new Main()
 
-	constructor: ->
-		
-		super
-		
-		@stateChange = name: 'Initial', args: {}
+main.on 'tick', ->
 	
-	tick: ->
-		
-		Timing.TimingService.setElapsed timeCounter.current() / 1000
-		
-		super
-		
-main = new Main
+	Timing.TimingService.setElapsed timeCounter.current() / 1000
 
 # Log and exit on error.
 main.on 'error', (error) ->
@@ -51,7 +45,8 @@ main.on 'error', (error) ->
 		error.toString()
 	console.error message
 	
-	main.quit 1
+	main.quit()
+	process.exit 1
 
 # Close out services and stop running on quit.
 main.on 'quit', (code = 0) ->
@@ -60,8 +55,6 @@ main.on 'quit', (code = 0) ->
 	Timing.timingService.close()
 	Graphics.graphicsService.close()
 	Core.coreService.close()
-	
-	process.exit code
 
 # Quit on interrupt (ctrl-c)
 process.on 'SIGINT', ->
