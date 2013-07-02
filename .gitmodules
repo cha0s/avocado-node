@@ -10,6 +10,3 @@
 [submodule "SPI/SFML"]
 	path = SPI/SFML
 	url = git://github.com/cha0s/avocado-spi-sfml.git
-[submodule "SPI/v8"]
-	path = SPI/v8
-	url = git://github.com/cha0s/avocado-spi-v8.git
