@@ -13,6 +13,7 @@
     },
     'include_dirs': [
       '..',
+      '../core',
       '../core/deps',
     ],
     "sources": [
@@ -22,14 +23,14 @@
   },
   "targets": [
     {
-      "target_name": "Core",
+      "target_name": "__core",
       "sources": [
         "../SPI/v8/Script/v8CoreService.cpp",
         "../core/Core/CoreService.cpp",
       ]
     },
     {
-      "target_name": "Graphics",
+      "target_name": "__graphics",
       "sources": [
         "../core/Graphics/Canvas.cpp",
         "../SPI/v8/Script/v8Canvas.cpp",
@@ -46,7 +47,7 @@
       ]
     },
     {
-      "target_name": "Sound",
+      "target_name": "__sound",
       "sources": [
         "../SPI/v8/Script/v8SoundService.cpp",
         "../core/Sound/SoundService.cpp",
@@ -57,12 +58,10 @@
       ]
     },
     {
-      "target_name": "Timing",
+      "target_name": "__timing",
       "sources": [
         "../SPI/v8/Script/v8TimingService.cpp",
         "../core/Timing/TimingService.cpp",
-        "../SPI/v8/Script/v8Counter.cpp",
-        "../core/Timing/Counter.cpp",
       ]
     }
   ]
