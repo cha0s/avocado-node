@@ -1,12 +1,6 @@
 [submodule "core"]
 	path = core
 	url = git://github.com/cha0s/avocado-cpp-core.git
-[submodule "SPI/Qt"]
-	path = SPI/Qt
-	url = git://github.com/cha0s/avocado-spi-qt.git
-[submodule "SPI/SDL"]
-	path = SPI/SDL
-	url = git://github.com/cha0s/avocado-spi-sdl.git
 [submodule "SPI/SFML"]
 	path = SPI/SFML
 	url = git://github.com/cha0s/avocado-spi-sfml.git
